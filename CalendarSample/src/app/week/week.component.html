@@ -1,0 +1,6 @@
+<div *ngFor="let date of dates; let i = index">
+  <div [ngClass]="{'datefield': true, 'weekday': isWeekDay(i), 
+  'weekend': isWeekend(i),'disabled': isDisabled(i), 'holiday': isHoliday(i)}">
+  <span class="label"> {{date}} </span>
+</div>
+</div>

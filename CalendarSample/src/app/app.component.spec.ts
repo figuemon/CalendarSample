@@ -1,11 +1,25 @@
+import { CalendarComponent } from './calendar/calendar.component';
+import { AppModule } from './app.module';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { WeekComponent } from './week/week.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        CalendarComponent,
+        WeekComponent
       ],
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        CalendarModule,
+        FormsModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -18,10 +32,5 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('CalendarSample');
   }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to CalendarSample!');
-  }));
+
 });

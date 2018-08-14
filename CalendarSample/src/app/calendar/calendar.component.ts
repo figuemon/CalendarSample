@@ -41,7 +41,7 @@ export class CalendarComponent implements OnChanges, OnInit {
     this.startMoment = moment(this.startDate);
     let currentDate = this.startMoment;
     let initialDay = this.startMoment.day();
-    let currentMonth = currentDate.month();
+    let currentMonth = currentDate.format('MMMM YYYY');
     this.months[currentMonth] = new MonthData(currentDate.format('MMMM YYYY'), []);
     const monthCounter = 1;
     let dayOfWeek = initialDay;
@@ -62,8 +62,8 @@ export class CalendarComponent implements OnChanges, OnInit {
         dayOfWeek = 0;
       }
       // Move to next month
-      if (currentDate.month() !== currentMonth) {
-        currentMonth = currentDate.month();
+      if (currentDate.format('MMMM YYYY') !== currentMonth) {
+        currentMonth = currentDate.format('MMMM YYYY');
         this.months[currentMonth] = new MonthData(currentDate.format('MMMM YYYY'), []);
         dayOfWeek = currentDate.day();
         weekOfMonth = 0;

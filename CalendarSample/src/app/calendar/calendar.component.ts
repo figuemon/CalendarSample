@@ -55,6 +55,7 @@ export class CalendarComponent implements OnChanges, OnInit {
       //Add current date to the week 
       this.months[currentMonth].weeks[weekOfMonth].push(currentDate.clone());
       currentDate.add(1, 'days');
+      let currentDateMonth = currentDate.format('MMMM YYYY');
       dayOfWeek++;
       // Move to next Week
       if (dayOfWeek > 6) {
@@ -62,9 +63,9 @@ export class CalendarComponent implements OnChanges, OnInit {
         dayOfWeek = 0;
       }
       // Move to next month
-      if (currentDate.format('MMMM YYYY') !== currentMonth) {
-        currentMonth = currentDate.format('MMMM YYYY');
-        this.months[currentMonth] = new MonthData(currentDate.format('MMMM YYYY'), []);
+      if (currentDateMonth !== currentMonth) {
+        currentMonth =currentDateMonth;
+        this.months[currentMonth] = new MonthData(currentDateMonth, []);
         dayOfWeek = currentDate.day();
         weekOfMonth = 0;
       }

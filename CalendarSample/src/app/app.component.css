@@ -1,0 +1,22 @@
+.startDate {
+    width: 100%;
+    display: inline-block;
+}
+.startDate label{
+    width: 150px;
+}
+.days {
+    width: 100%;
+    display: inline-block;
+}
+.days label {
+    width: 150px;
+    display: inline-block;
+}
+.country {
+    width: 100%;
+    display: inline-block;
+}
+.country label{
+    width: 150px;
+}

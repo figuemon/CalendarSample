@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CalendarSample';
+  startDate: Date = new Date();
+  days: number = 0;
 }

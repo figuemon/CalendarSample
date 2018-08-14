@@ -1,4 +1,6 @@
+import { HolidayServiceService } from './../holiday-service.service';
 import { Component, OnInit, Input } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-week',
@@ -7,13 +9,32 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WeekComponent implements OnInit {
 
-  constructor() { }
+  constructor(private holiday: HolidayServiceService) { }
 
   ngOnInit() {
   }
 
+  week: Array<moment.Moment> = [];
+
   @Input()
-  dates: any;
+  set dates(value: Array<moment.Moment>) {
+    const weekdays = new Array<moment.Moment>(7);
+    if (!value) {
+      this.week = weekdays;
+      return;
+    }
+    if (value.length === 7) {
+      this.week = value;
+    }
+    else {
+      for (let d of value) {
+        weekdays[d.day()] = d;
+      }
+      this.week = weekdays;
+    }
+
+  }
+
 
   /**
    * Returns a boolean value that indicates if the 
@@ -29,7 +50,10 @@ export class WeekComponent implements OnInit {
    * Returns true if the day is a Holiday
    * @param index The current day index
    */
-  isHoliday(index:number): boolean {
+  isHoliday(index: number): boolean {
+    if (this.week[index]) {
+      return this.holiday.isHolidayDate(this.week[index]);
+    }
     return false;
   }
 
@@ -46,7 +70,16 @@ export class WeekComponent implements OnInit {
    * @param index the current day index
    */
   isDisabled(index: number): boolean {
-    return !this.dates[index];
+    return !this.week[index];
+  }
+
+  getDayNumber(moment: moment.Moment) {
+    console.log(moment);
+    console.log(this.week);
+    if (moment) {
+      return moment.date();
+    }
+    return '';
   }
 
 }

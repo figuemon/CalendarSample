@@ -1,3 +1,17 @@
-<app-week></app-week>
-<app-calendar></app-calendar>
-
+<div class="information">
+    <div class="startDate">
+        <label>Start Date:</label>
+        <p-calendar [(ngModel)]="startDate"></p-calendar>
+    </div>
+    <div class="days">
+        <label>Number of days:</label>
+        <input type="number" [(ngModel)]="days" />
+    </div>
+    <div class="country">
+        <label>Country Code:</label>
+        <input type="text" maxlength="3" />
+    </div>
+</div>
+<div class="result">
+    <app-calendar [startDate]="startDate" [numberOfDays]="days"></app-calendar>
+</div>

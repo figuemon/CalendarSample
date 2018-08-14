@@ -1,4 +1,4 @@
-<div class="Header">
+<div class="header">
   <span>S</span>
   <span>M</span>
   <span>T</span>
@@ -6,4 +6,10 @@
   <span>T</span>
   <span>F</span>
   <span>S</span>
+</div>
+<div *ngFor="let month of monthsArray">
+  <span *ngIf="displayMonth(month)"class="monthTitle">{{this.months[month].name}}</span>
+  <div class="week" *ngFor="let week of this.months[month].weeks">
+    <app-week [dates]="week"></app-week>
+  </div>
 </div>

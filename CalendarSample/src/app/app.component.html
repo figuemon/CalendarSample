@@ -1,3 +1,4 @@
+<div class="main">
 <div class="information">
     <div class="startDate">
         <label>Start Date:</label>
@@ -9,9 +10,10 @@
     </div>
     <div class="country">
         <label>Country Code:</label>
-        <input type="text" maxlength="3" />
+        <input type="text" [(ngModel)]="countryCode" maxlength="3" />
     </div>
 </div>
 <div class="result">
-    <app-calendar [startDate]="startDate" [numberOfDays]="days"></app-calendar>
+    <app-calendar [startDate]="startDate" [numberOfDays]="days" [countryCode]="countryCode"></app-calendar>
+</div>
 </div>

@@ -17,6 +17,9 @@ export class WeekComponent implements OnInit {
   week: Array<moment.Moment> = [];
 
   @Input()
+  countryCode: string;
+
+  @Input()
   set dates(value: Array<moment.Moment>) {
     const weekdays = new Array<moment.Moment>(7);
     if (!value) {
@@ -52,7 +55,7 @@ export class WeekComponent implements OnInit {
    */
   isHoliday(index: number): boolean {
     if (this.week[index]) {
-      return this.holiday.isHolidayDate(this.week[index]);
+      return this.holiday.isHolidayDate(this.week[index], this.countryCode);
     }
     return false;
   }

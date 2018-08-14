@@ -10,6 +10,6 @@
 <div *ngFor="let month of monthsArray">
   <span *ngIf="displayMonth(month)"class="monthTitle">{{this.months[month].name}}</span>
   <div class="week" *ngFor="let week of this.months[month].weeks">
-    <app-week [dates]="week"></app-week>
+    <app-week [dates]="week" [countryCode]="countryCode"></app-week>
   </div>
 </div>

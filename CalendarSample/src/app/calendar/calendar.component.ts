@@ -17,6 +17,9 @@ export class CalendarComponent implements OnChanges, OnInit {
   @Input()
   numberOfDays = 60;
 
+  @Input()
+  countryCode = "";
+
   get monthsArray() {
     return Object.keys(this.months);
   }

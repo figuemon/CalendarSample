@@ -9,4 +9,5 @@ export class AppComponent {
   title = 'CalendarSample';
   startDate: Date = new Date();
   days: number = 0;
+  countryCode = "US";
 }

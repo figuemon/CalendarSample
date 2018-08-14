@@ -12,7 +12,7 @@ export class HolidayServiceService {
    * This probably need to be performed by a backend service
    * @param year The year that you want to retrieve the holiday list
    */
-  private getYearHolidays(year: number) {
+  private getYearHolidays(year: number, country: string) {
     return [
       moment('2018-01-01'),
       moment('2018-03-29'),
@@ -28,8 +28,8 @@ export class HolidayServiceService {
     ];
   }
 
-  isHolidayDate(m1: moment.Moment): boolean {
-    return this.getYearHolidays(m1.year()).filter((val) => this.isSameDayAndMonth(val, m1)).length > 0;
+  isHolidayDate(m1: moment.Moment, country: string): boolean {
+    return this.getYearHolidays(m1.year(), country).filter((val) => this.isSameDayAndMonth(val, m1)).length > 0;
   }
 
 

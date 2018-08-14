@@ -77,8 +77,6 @@ export class WeekComponent implements OnInit {
   }
 
   getDayNumber(moment: moment.Moment) {
-    console.log(moment);
-    console.log(this.week);
     if (moment) {
       return moment.date();
     }
